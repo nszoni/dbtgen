@@ -1,0 +1,32 @@
+name: 'dbtgen'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbtgen'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+# Add a dynamic query comment providing context of execution
+query-comment:
+  comment: "{{ query_comment(node) }}"
+  append: true
+
+# Require dbt x.x.x
+require-dbt-version: [">=1.6.0", "<2.0.0"]
+
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  # persist yaml docs
+  +persist_docs:
+    relation: true
+    columns: true
+  dbtgen:
+    +materialized: table

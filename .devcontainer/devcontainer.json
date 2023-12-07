@@ -1,0 +1,80 @@
+{
+    "name": "${localWorkspaceFolderBasename}",
+    "remoteUser": "vscode",
+    "build": {
+        "dockerfile": "../Dockerfile"
+    },
+    "workspaceFolder": "/workspaces/dbtgen/",
+    "runArgs": ["--env-file", "${localWorkspaceFolder}/.env"],
+    "containerEnv": {
+        "DBT_PROFILES_DIR": "${containerWorkspaceFolder}",
+        "DBT_PROJECT_DIR": "${containerWorkspaceFolder}"
+    },
+    "mounts": [
+        "source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+    ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "bastienboutonnet.vscode-dbt",
+                "innoverio.vscode-dbt-power-user",
+                "vscode-icons-team.vscode-icons",
+                "visualstudioexptteam.vscodeintellicode",
+                "redhat.vscode-yaml",
+                "samuelcolvin.jinjahtml",
+                "dorzey.vscode-sqlfluff",
+                "jannisx11.batch-rename-extension",
+                "nemesv.copy-file-name",
+                "turntable.turntable-for-dbt-core"
+            ],
+            "settings": {
+                "workbench.iconTheme": "vscode-icons",
+                "python.interpreter.infoVisibility": "always",
+                "terminal.integrated.defaultProfile.linux#": "/bin/bash",
+                "python.terminal.activateEnvInCurrentTerminal": false,
+                "python.envFile": "${localWorkspaceFolder}/.env",
+                "python.pythonPath": "/usr/local/bin/python",
+                "python.defaultInterpreterPath": "/usr/local/bin/python",
+                "python.languageServer": "Pylance",
+                "dbt.queryTemplate": "select * from ({query}) as query limit {limit}",
+                "sql.linter.executablePath": "/usr/local/bin/sqlfluff",
+                "sql.format.enable": true,
+                "findrelated.workspaceRulesets": [
+                    {
+                        "name": "sql",
+                        "rules": [
+                            {
+                                "pattern": "^(.*/)?models/(.*/)?(.+\\.sql)$",
+                                "locators": ["/compiled/**/$3"]
+                            },
+                            {
+                                "pattern": "^(.*/)?compiled/(.*/)?(.+\\.sql)$",
+                                "locators": ["/run/**/$3"]
+                            },
+                            {
+                                "pattern": "^(.*/)?run/(.*/)?(.+\\.sql)$",
+                                "locators": ["/models/**/$3"]
+                            }
+                        ]
+                    }
+                ],
+                "findrelated.applyRulesets": ["sql"],
+                "files.associations": {
+                    "**/*.yaml": "jinja-yaml",
+                    "**/*.yml": "jinja-yaml",
+                    "**/*.sql": "jinja-sql",
+                    "**/docs/**/*.md": "jinja-md"
+                },
+                "[jinja-sql]": {
+                    "editor.defaultFormatter": "innoverio.vscode-dbt-power-user",
+                    "editor.formatOnSave": true
+                },
+                "[jinja-yaml]": {
+                    "editor.defaultFormatter": "redhat.vscode-yaml",
+                    "editor.formatOnSave": true
+                }
+            }
+        }
+    },
+    "postAttachCommand": "git config --global --add safe.directory ${containerWorkspaceFolder} && git config --global credential.useHttpPath true && git config --global core.autocrlf input"
+}
