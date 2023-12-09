@@ -20,6 +20,7 @@ dbt-core==1.6.9
 dbt-extractor==0.4.1
 dbt-osmosis==0.12.4
 dbt-semantic-interfaces==0.2.3
+dbt2looker==0.11.0
 dbt_coves==1.6.19
 dunamai==1.19.0
 frozenlist==1.4.0
@@ -50,6 +51,7 @@ jinja2-ansible-filters==1.3.2
 jsonschema==4.20.0
 jsonschema-specifications==2023.11.2
 leather==0.3.4
+lkml==1.3.3
 Logbook==1.5.3
 luddite==1.0.3
 markdown-it-py==3.0.0

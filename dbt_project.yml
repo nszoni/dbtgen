@@ -11,11 +11,6 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 
-# Add a dynamic query comment providing context of execution
-query-comment:
-  comment: "{{ query_comment(node) }}"
-  append: true
-
 # Require dbt x.x.x
 require-dbt-version: [">=1.6.0", "<2.0.0"]
 

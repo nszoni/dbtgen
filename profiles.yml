@@ -1,7 +1,7 @@
 dbtgen:
   outputs:
     dev:
-      dataset: dbt_sonny
+      dataset: jaffle_shop
       job_execution_timeout_seconds: 300
       job_retries: 1
       location: EU

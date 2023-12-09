@@ -1,20 +1,12 @@
 # dbtgen
 
-dbt: write nothing, generate (almost) everything
+*dbt: write nothing, generate (almost) everything.*
 
-## This project uses GitHub Archive dataset hosted by BigQuery.
+## This project uses Jaffle Shop 🛍️ data
 
-[GH Archive](https://www.gharchive.org/#bigquery)
+jaffle_shop is a fictional ecommerce store. This dbt project transforms raw data from an app database into a customers and orders model ready for analytics.
 
-```sql
-SELECT event as issue_status, COUNT(*) as cnt FROM (
-  SELECT type, repo.name, actor.login,
-    JSON_EXTRACT(payload, '$.action') as event, 
-  FROM `githubarchive.day.20231215`
-  WHERE type = 'IssuesEvent'
-)
-GROUP by issue_status;
-```
+A self-contained playground dbt project, useful for testing out scripts, and communicating some of the core dbt concepts.
 
 ## This project uses DevContainers.
 
