@@ -1,0 +1,46 @@
+version: 2
+models:
+  - name: fct_orders
+    columns:
+      - name: order_id
+        description: The ID of the associated order that the payment transaction is
+          for. This links each payment to the specific order it was made against.
+        data_type: INT64
+      - name: customer_id
+        description: A unique ID number that identifies the customer who placed the
+          order.
+        data_type: INT64
+      - name: order_date
+        description: The calendar date on which the order was placed by the customer.
+        data_type: DATE
+      - name: status
+        description: The current state of the order in the fulfillment process, such
+          as 'pending', 'complete' or 'cancelled'.
+        data_type: STRING
+      - name: credit_card_amount
+        description: The total dollar amount paid for the order using credit card
+          payments.
+        data_type: INT64
+      - name: coupon_amount
+        description: The total dollar amount deducted from the order total using coupon
+          discounts.
+        data_type: INT64
+      - name: bank_transfer_amount
+        description: The total dollar amount paid for the order using bank transfer
+          payments.
+        data_type: INT64
+      - name: gift_card_amount
+        description: The total dollar amount paid for the order using gift card payments.
+        data_type: INT64
+      - name: amount
+        description: The total monetary amount in cents for an individual payment
+          transaction. For example, $1.99 would be represented as 199.
+        data_type: INT64
+    description: The dbt model fct_orders is a tool that organizes and analyzes customer
+      payment data. It breaks down payments by method, such as credit card, coupon,
+      bank transfer, and gift card, for each order. This model can be used to understand
+      customer payment preferences and track the usage of different payment methods
+      over time. It can also help identify trends, such as an increase in gift card
+      usage during the holiday season, or a correlation between high-value orders
+      and a specific payment method. This information can be used to inform business
+      strategies, such as promotional campaigns or customer loyalty programs.

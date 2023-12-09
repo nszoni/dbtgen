@@ -1,0 +1,22 @@
+version: 2
+models:
+  - name: base_jaffle_shop_raw_customers
+    columns:
+      - name: id
+        description: A unique number that identifies each customer in the database.
+          No two customers will have the same ID number.
+        data_type: INT64
+      - name: first_name
+        description: The customer's given name or names. For example, "John" or "Mary
+          Jane".
+        data_type: STRING
+      - name: last_name
+        description: The customer's family name or surname. For example, "Smith" or
+          "Doe".
+        data_type: STRING
+    description: 'The base_jaffle_shop_raw_customers model is a simplified database
+      of customer information. It contains three key pieces of data: a unique ID number,
+      and the first and last names of each customer. This model can be used to track
+      and analyze customer behavior, such as purchasing patterns. It can also be used
+      to personalize marketing efforts. The model is designed to be easily understood
+      and manipulated, making it a versatile tool for a variety of business applications.'

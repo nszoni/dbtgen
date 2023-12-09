@@ -1,0 +1,28 @@
+version: 2
+models:
+  - name: base_jaffle_shop_raw_payments
+    columns:
+      - name: id
+        description: A unique numeric identifier for each payment transaction. This
+          ID is automatically generated and incremented sequentially.
+        data_type: INT64
+      - name: order_id
+        description: The ID of the associated order that the payment transaction is
+          for. This links each payment to the specific order it was made against.
+        data_type: INT64
+      - name: payment_method
+        description: The method by which the payment was made, such as 'credit_card',
+          'gift_card', or 'cash'. This indicates how the customer chose to pay for
+          their order.
+        data_type: STRING
+      - name: amount
+        description: The total monetary amount in cents for an individual payment
+          transaction. For example, $1.99 would be represented as 199.
+        data_type: INT64
+    description: The base_jaffle_shop_raw_payments model is a tool that organizes
+      payment data from the Jaffle Shop. It includes details like the payment amount,
+      order ID, and the method of payment. This model can be used to track and analyze
+      sales trends, customer payment preferences, and overall revenue. It can help
+      in making strategic decisions like which payment methods to prioritize or identifying
+      the most profitable orders. The model is designed to present data in a simple
+      and understandable format, making it easy to spot patterns and correlations.

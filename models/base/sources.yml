@@ -1,0 +1,48 @@
+sources:
+  - name: jaffle_shop
+    description: ""
+    tables:
+      - name: raw_customers
+        description: ""
+        columns:
+          - name: id
+            data_type: INT64
+            description: ""
+          - name: first_name
+            data_type: STRING
+            description: ""
+          - name: last_name
+            data_type: STRING
+            description: ""
+
+      - name: raw_orders
+        description: ""
+        columns:
+          - name: id
+            data_type: INT64
+            description: ""
+          - name: user_id
+            data_type: INT64
+            description: ""
+          - name: order_date
+            data_type: DATE
+            description: ""
+          - name: status
+            data_type: STRING
+            description: ""
+
+      - name: raw_payments
+        description: ""
+        columns:
+          - name: id
+            data_type: INT64
+            description: ""
+          - name: order_id
+            data_type: INT64
+            description: ""
+          - name: payment_method
+            data_type: STRING
+            description: ""
+          - name: amount
+            data_type: INT64
+            description: ""

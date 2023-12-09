@@ -1,0 +1,26 @@
+version: 2
+models:
+  - name: base_jaffle_shop_raw_orders
+    columns:
+      - name: id
+        description: A unique number that identifies each individual order placed
+          in the Jaffle Shop.
+        data_type: INT64
+      - name: user_id
+        description: A number that identifies the customer who placed the order. Each
+          customer has a unique ID number.
+        data_type: INT64
+      - name: order_date
+        description: The calendar date on which the order was placed by the customer.
+        data_type: DATE
+      - name: status
+        description: The current state of the order in the fulfillment process, such
+          as 'pending', 'complete' or 'cancelled'.
+        data_type: STRING
+    description: The base_jaffle_shop_raw_orders model is a structured set of data
+      that tracks customer orders at Jaffle Shop. It includes details like order ID,
+      date of order, status of the order, and the user ID. This model can be used
+      to analyze customer behavior, track sales trends, and monitor order statuses.
+      It can help in making strategic decisions like when to run promotions or which
+      products are popular. The model reveals patterns like peak order times and correlations
+      between user activity and order status.

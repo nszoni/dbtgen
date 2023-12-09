@@ -36,3 +36,40 @@ If you encounter any issues during deployment or need further assistance, please
 
 ## Contributing
 Contributions are welcomed through GitHub pull requests.
+
+## Walkthrough 👣
+
+### 1. Generate files and models
+
+```bash
+# init raw data
+dbt seed
+
+# generate sources with colname and dtypes
+dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "generate_columns": true, "include_descriptions": true}'
+
+# generate staging models
+# or use dbt power user
+dbt run-operation codegen.create_base_models --args '{source_name: my-source, tables: ["this-table","that-table"]}'
+dbt run
+```
+
+### Generate descriptions
+
+```bash
+# 1. scaffold yaml files with osmosis
+dbt-osmosis yaml organize
+
+# 2. fill descriptions with Turntable
+
+# 3. inherit docs with dbt-osmosis
+dbt-osmosis yaml document
+```
+
+### Generate BI semantics
+
+```bash
+# generate LookML
+dbt docs generate
+dbt2looker --tag marts
+```

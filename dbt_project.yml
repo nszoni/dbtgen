@@ -19,9 +19,13 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  # persist yaml docs
-  +persist_docs:
-    relation: true
-    columns: true
   dbtgen:
+    +dbt-osmosis: "{model}.yml"
+    # persist yaml docs
+    +persist_docs:
+      relation: true
+      columns: true
     +materialized: table
+    marts:
+      +tags: 
+        - "marts"
