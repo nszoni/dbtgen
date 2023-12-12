@@ -2,13 +2,13 @@
 
 with orders as (
 
-    select * from {{ ref('base_jaffle_shop_raw_orders') }}
+    select * from {{ ref('stg_jaffle_shop_raw__raw_orders') }}
 
 ),
 
 payments as (
 
-    select * from {{ ref('base_jaffle_shop_raw_payments') }}
+    select * from {{ ref('stg_jaffle_shop_raw__raw_payments') }}
 
 ),
 

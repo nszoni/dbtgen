@@ -18,6 +18,9 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+seeds:
+  schema: raw
+
 models:
   dbtgen:
     +dbt-osmosis: "{model}.yml"
