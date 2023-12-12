@@ -27,4 +27,5 @@ dbt-osmosis yaml document
 # dbt-osmosis yaml refactor
 
 # generate LookML
+dbt docs generate
 dbt2looker --tag prod
