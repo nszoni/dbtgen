@@ -2,21 +2,31 @@
 dbt seed
 
 # generate sources with colname and dtypes
-dbt run-operation generate_source --args '{"schema_name": "jaffle_shop", "generate_columns": true}'
+dbt run-operation generate_source --args '{"schema_name": "jaffle_shop_raw", "generate_columns": true}'
 
 # generate staging models
-dbt run-operation codegen.create_base_models --args '{source_name: my-source, tables: ["this-table","that-table"]}'
+# or use dbt power user plugin
+dbt run-operation codegen.create_base_models --args '{source_name: jaffle_shop_raw, tables: ["raw_customers","raw_orders","raw_payments"]}'
 
 # generate model yamls
-$ dbt run-operation generate_model_yaml --args '{"model_names": ["customers"]}'
+# dbt run-operation generate_model_yaml --args '{"model_names": ["customers"]}'
 
-# generate model descriptions with Turntable
+# add marts
+dbt run
 
-# add profiling
-dbt run-operation print_profile --args '{"relation_name": "customers"}'
+# scaffold yaml files
+dbt-osmosis yaml organize
 
-# inherit docs with dbt-osmosis
+# use GenAI to generate docs
+#Power User or Turntable
+
+# inherit docs
+dbt-osmosis yaml document
+
+# in precommit: does the above 2
 dbt-osmosis yaml refactor
+
+# generate
 
 # generate LookML
 dbt2looker --tag prod
