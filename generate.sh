@@ -8,11 +8,11 @@ dbt run-operation generate_source --args '{"schema_name": "jaffle_shop_raw", "ge
 # or use dbt power user plugin
 dbt run-operation codegen.create_base_models --args '{source_name: jaffle_shop_raw, tables: ["raw_customers","raw_orders","raw_payments"]}'
 
-# generate model yamls
-# dbt run-operation generate_model_yaml --args '{"model_names": ["customers"]}'
-
 # add marts
 dbt run
+
+# generate model yamls
+# dbt run-operation generate_model_yaml --args '{"model_names": []}'
 
 # scaffold yaml files
 dbt-osmosis yaml organize
@@ -24,9 +24,7 @@ dbt-osmosis yaml organize
 dbt-osmosis yaml document
 
 # in precommit: does the above 2
-dbt-osmosis yaml refactor
-
-# generate
+# dbt-osmosis yaml refactor
 
 # generate LookML
 dbt2looker --tag prod
